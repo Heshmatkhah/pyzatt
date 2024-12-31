@@ -1,5 +1,6 @@
 import struct
-import pyzatt.zkmodules.defs as DEFS
+# import pyzatt.zkmodules.defs as DEFS
+from . import defs as DEFS
 
 """
 This file contains the functions to manage the user's data, fingerprints,

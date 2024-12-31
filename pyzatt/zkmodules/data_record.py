@@ -1,6 +1,8 @@
 import struct
-import pyzatt.zkmodules.defs as DEFS
-import pyzatt.misc as misc
+# import pyzatt.zkmodules.defs as DEFS
+# import pyzatt.misc as misc
+from . import defs as DEFS
+from .. import misc as misc
 
 """
 This file contains the functions related to manage records
@@ -27,7 +29,7 @@ class DataRecordMixin:
         self.att_log = []
 
         # get number of log entries
-        att_count = struct.unpack('<H', self.last_payload_data[0:2])[0]/40
+        att_count = struct.unpack('<H', self.last_payload_data[0:2])[0] / 40
         att_count = int(att_count)
 
         # skip the size of log and zeros
@@ -36,16 +38,16 @@ class DataRecordMixin:
         # extract the fields from each log entry
         for idx in range(att_count):
             # user internal index
-            user_sn = struct.unpack('<H', self.last_payload_data[i:i+2])[0]
+            user_sn = struct.unpack('<H', self.last_payload_data[i:i + 2])[0]
             # user id
-            user_id = self.last_payload_data[i+2:i+11].decode('ascii').\
+            user_id = self.last_payload_data[i + 2:i + 11].decode('ascii'). \
                 replace('\x00', '')
             # verification type
-            ver_type = self.last_payload_data[i+26]
+            ver_type = self.last_payload_data[i + 26]
             # time of the record
-            att_time = misc.decode_time(self.last_payload_data[i+27:i+31])
+            att_time = misc.decode_time(self.last_payload_data[i + 27:i + 31])
             # verification state
-            ver_state = self.last_payload_data[i+31]
+            ver_state = self.last_payload_data[i + 31]
 
             # append attendance entry
             self.append_att_entry(user_sn, user_id, ver_type,
@@ -84,14 +86,14 @@ class DataRecordMixin:
         i = 4
         # extracts the operation fields from each entry
         for idx in range(op_count):
-            op_id = self.last_payload_data[i+2]
+            op_id = self.last_payload_data[i + 2]
             op_time = misc.decode_time(self.last_payload_data[i + 4:i + 8])
 
             # extract params
-            param1 = struct.unpack('<H', self.last_payload_data[i+8:i+10])[0]
-            param2 = struct.unpack('<H', self.last_payload_data[i+10:i+12])[0]
-            param3 = struct.unpack('<H', self.last_payload_data[i+12:i+14])[0]
-            param4 = struct.unpack('<H', self.last_payload_data[i+14:i+16])[0]
+            param1 = struct.unpack('<H', self.last_payload_data[i + 8:i + 10])[0]
+            param2 = struct.unpack('<H', self.last_payload_data[i + 10:i + 12])[0]
+            param3 = struct.unpack('<H', self.last_payload_data[i + 12:i + 14])[0]
+            param4 = struct.unpack('<H', self.last_payload_data[i + 14:i + 16])[0]
 
             # append operation log entry
             self.append_op_entry(op_id, op_time, param1,

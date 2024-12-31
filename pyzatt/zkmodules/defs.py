@@ -1,4 +1,3 @@
-
 """
 This file contains definition of constants and codes used for the protocol
 implementation.
@@ -8,7 +7,7 @@ Author: Alexander Marin <alexuzmarin@gmail.com>
 
 # fixed arrays
 START_TAG = bytearray([0x50, 0x50, 0x82, 0x7D])
-SHORT_ZERO = bytearray([0x00]*2)
+SHORT_ZERO = bytearray([0x00] * 2)
 
 # command codes
 CMD_CONNECT = 0x03e8

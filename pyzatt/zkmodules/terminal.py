@@ -1,7 +1,9 @@
 import socket
 import struct
-import pyzatt.zkmodules.defs as DEFS
-import pyzatt.misc as misc
+# import pyzatt.zkmodules.defs as DEFS
+# import pyzatt.misc as misc
+from . import defs as DEFS
+from .. import misc as misc
 
 """
 This file contains the functions of the "terminal" protocol spec

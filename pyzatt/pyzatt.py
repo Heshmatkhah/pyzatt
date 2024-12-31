@@ -1,10 +1,17 @@
-from pyzatt.zkmodules.packet import PacketMixin
-from pyzatt.zkmodules.data_user import DataUserMixin
-from pyzatt.zkmodules.data_record import DataRecordMixin
-from pyzatt.zkmodules.terminal import TerminalMixin
-from pyzatt.zkmodules.access import AccessMixin
-from pyzatt.zkmodules.realtime import RealtimeMixin
-from pyzatt.zkmodules.other import OtherMixin
+# from pyzatt.zkmodules.packet import PacketMixin
+# from pyzatt.zkmodules.data_user import DataUserMixin
+# from pyzatt.zkmodules.data_record import DataRecordMixin
+# from pyzatt.zkmodules.terminal import TerminalMixin
+# from pyzatt.zkmodules.access import AccessMixin
+# from pyzatt.zkmodules.realtime import RealtimeMixin
+# from pyzatt.zkmodules.other import OtherMixin
+from .zkmodules.packet import PacketMixin
+from .zkmodules.data_user import DataUserMixin
+from .zkmodules.data_record import DataRecordMixin
+from .zkmodules.terminal import TerminalMixin
+from .zkmodules.access import AccessMixin
+from .zkmodules.realtime import RealtimeMixin
+from .zkmodules.other import OtherMixin
 from prettytable import PrettyTable
 import binascii
 import struct

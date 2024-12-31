@@ -1,10 +1,12 @@
 import struct
-import pyzatt.zkmodules.defs as DEFS
-import pyzatt.misc as misc
+# import pyzatt.zkmodules.defs as DEFS
+# import pyzatt.misc as misc
+from . import defs as DEFS
+from .. import misc as misc
 
 """
 This file contains provides functions to create, parse, receive and send,
-packets, it also suppors reading of large datasets(see ex_data protocol spec).
+packets, it also supports reading of large datasets(see ex_data protocol spec).
 
 Author: Alexander Marin <alexuzmarin@gmail.com>
 """

@@ -115,6 +115,10 @@ def checksum16(payload):
     while j < len(payload):
         # extract short integer, in little endian, from payload
         num_16b = payload[j - 1] + (payload[j] << 8)
+        # TODO: Whey didn't use unpack like this????
+        num_16b_2 = struct.unpack('<H', payload[j-1:j+1])[0]
+        if num_16b_2 != num_16b:
+            print("Error in unpack: This is why!")
         # accumulate
         chk_32b += num_16b
         j += 2  # increment pointer by 2 bytes
